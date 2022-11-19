@@ -1,0 +1,7 @@
+11) SELECT TODOS LOS EMPLEADOS DE LAS OFICINAS DE "USA"
+
+SELECT employees.*,offices.country FROM employees JOIN offices ON employees.officeCode= offices.officeCode WHERE offices.country="USA";
+
+12) SELECCIONAR ELMONTO TOTAL EN VENTAS DELOS PRODUCTOS DE LA LINEA "Motorcycles"
+  
+SELECT SUM(payments.amount) AS total_ventas FROM payments JOIN customers ON payments.customerNumber= customers.customerNumber JOIN orders ON customers.customerNumber=orders.customerNumber JOIN orderdetails ON orders.orderNumber=orderdetails.orderNumber JOIN products ON orderdetails.productCode=products.productCode JOIN productlines ON products.productLine=productlines.productLine WHERE productlines.productLine="Motorcycles";
