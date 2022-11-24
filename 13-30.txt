@@ -1,0 +1,30 @@
+13)selecionar todos los productos dela linea trains
+SELECT * FROM products WHERE productLine="Trains";
+14) SELECIONAR TODOS LOS PAGOS REALIZADOS POR "Mini Wheels Co."
+SELECT * FROM customers JOIN payments ON customers.customerNumber=payments.customerNumber WHERE customerName="Mini Wheels Co.";
+15)selecionar todoslos pagos realizadospor clientes de "Spain"
+SELECT * FROM customers JOIN payments ON customers.customerNumber=payments.customerNumber WHERE Country="Spain";
+16)SELECIONAR TODOSLOS PRODUCTOS CORRESPONDIENTES ALAS ORDDENES DE COMPRA REALIZADA EL 2003
+SELECT productName,orderDate
+FROM products JOIN orders ON  WHERE orderDate BETWEEN "2003-01-01"AND "2003-12-31";
+17)SELECIONAR TODOS LOS EMPLEADOS DE LAS OFICINAS UBICADAS EN USA ;
+
+18)SELECIONAR LOS PRODUCTOS QUE FIGURA EN ORDENES DE COMPRA DEL CLIENTE COMO CONTACTO APELLIDO "Young"
+SELECT contactLastName,productName FROM customers JOIN products WHERE productName LIKE "%Q%" AND contactLastName="Young";
+19)selecionar las ordenes de compra donde aparace el producto denomimnado "P-51-D Mustang"
+SELECT productName,orderDate FROM products JOIN orders WHERE productName="P-51-D Mustang";
+20)SELECIONAR LAS ORDENS DE COMPRA DE LOS PRODUCTOS DE LA LINEA "Classic Cars"
+SELECT productLine,orderDate FROM productlines JOIN orders WHERE productLine="Classic Cars";
+21)selecionar las ordenes de compra reportadas porelempleado "King tom"
+
+22)selecionar todos los pagos que no fueron realizados por ""Pitit Auto"
+
+23)selecione todos los empleados cuya oficina no este en USA
+
+24)SELECIONAR LA CANTIDAD DE PRODUCTOS VENDIDOS EL 2003
+
+25 SELECIONAR EL MONTO TOTAL EN VENTAS DE LOS PRODUCTOS DELA LINEA "Planes"
+
+26)selecionar el monto total en venta de clientes de "SPAIN"
+
+27)selecionar la cantidad de empleados de las oficinasde "Japan"
