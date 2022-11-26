@@ -8,23 +8,40 @@ SELECT * FROM customers JOIN payments ON customers.customerNumber=payments.custo
 SELECT productName,orderDate
 FROM products JOIN orders ON  WHERE orderDate BETWEEN "2003-01-01"AND "2003-12-31";
 17)SELECIONAR TODOS LOS EMPLEADOS DE LAS OFICINAS UBICADAS EN USA ;
-
+SELECT employees.lastName, offices.country AS USA
+FROM employees 
+	 JOIN offices ON employees.officeCode = offices.officeCode
+     WHERE country="USA";
 18)SELECIONAR LOS PRODUCTOS QUE FIGURA EN ORDENES DE COMPRA DEL CLIENTE COMO CONTACTO APELLIDO "Young"
 SELECT contactLastName,productName FROM customers JOIN products WHERE productName LIKE "%Q%" AND contactLastName="Young";
 19)selecionar las ordenes de compra donde aparace el producto denomimnado "P-51-D Mustang"
 SELECT productName,orderDate FROM products JOIN orders WHERE productName="P-51-D Mustang";
 20)SELECIONAR LAS ORDENS DE COMPRA DE LOS PRODUCTOS DE LA LINEA "Classic Cars"
 SELECT productLine,orderDate FROM productlines JOIN orders WHERE productLine="Classic Cars";
-21)selecionar las ordenes de compra reportadas porelempleado "King tom"
-
-22)selecionar todos los pagos que no fueron realizados por ""Pitit Auto"
+21)selecionar las ordenes de compra reportadas por el empleado "King tom"
+SELECT employees.lastName AS King,employees.firstName AS tom, orders.orderDate
+FROM employees
+	 JOIN customers ON customers.salesRepEmployeeNumber = employees.employeeNumber
+	 JOIN orders ON orders.customerNumber = customers.customerNumber;
+22)selecionar todos los pagos que no fueron realizados por "Pitit Auto"
 
 23)selecione todos los empleados cuya oficina no este en USA
-
+SELECT employees.lastName, offices.country 
+FROM employees 
+	 JOIN offices ON employees.officeCode = offices.officeCode
+    WHERE country NOT IN ('USA');
+    
 24)SELECIONAR LA CANTIDAD DE PRODUCTOS VENDIDOS EL 2003
-
+SELECT products.productVendor, payments.paymentDate
+FROM products
+	, payments
+    WHERE paymentDate BETWEEN "2003-01-01"AND "2003-12-31";
 25 SELECIONAR EL MONTO TOTAL EN VENTAS DE LOS PRODUCTOS DELA LINEA "Planes"
+SELECT SUM(payments.amount) AS total_ventas FROM payments JOIN customers ON payments.customerNumber= customers.customerNumber JOIN orders ON customers.customerNumber=orders.customerNumber JOIN orderdetails ON orders.orderNumber=orderdetails.orderNumber JOIN products ON orderdetails.productCode=products.productCode JOIN productlines ON products.productLine=productlines.productLine WHERE productlines.productLine="Planes";
 
 26)selecionar el monto total en venta de clientes de "SPAIN"
 
 27)selecionar la cantidad de empleados de las oficinasde "Japan"
+28)
+29)
+30)
